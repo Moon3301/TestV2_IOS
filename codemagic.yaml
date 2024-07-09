@@ -28,8 +28,6 @@ workflows:
       - name: Build App
         script: xcode-project build-ipa --workspace "IA.xcworkspace" --scheme "IA"
         
-      xcode: latest
-      cocoapods: default
     scripts:
       - name: Install CocoaPods dependencies
         script: | 
