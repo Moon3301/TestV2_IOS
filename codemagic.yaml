@@ -20,8 +20,7 @@ workflows:
 
       - name: Fetch signing files
         script: app-store-connect fetch-signing-files "io.iosacademy.IOS-Academy" \
-            --type IOS_APP_STORE \
-            --create
+            --type IOS_APP_STORE
 
       - name: Set up signing certificate
         script: keychain add-certificates
