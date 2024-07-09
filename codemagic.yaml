@@ -22,8 +22,8 @@ workflows:
       - name: Set up signing certificate
         script: keychain add-certificates
 
-      - name        script: xcode-project use-profiles
-: Set up code signing settings on Xcode project
+      - name: Set up code signing settings on Xcode project        
+        script: xcode-project use-profiles 
 
       - name: Build App
         script: xcode-project build-ipa --workspace "IA.xcworkspace" --scheme "IA"
