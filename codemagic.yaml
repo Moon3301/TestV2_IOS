@@ -11,6 +11,7 @@ workflows:
         BUNDLE_ID: "io.codemagic.sample.iosnative"
         XCODE_WORKSPACE: "CodemagicSample.xcworkspace" # <-- Name of your Xcode workspace
         XCODE_SCHEME: "CodemagicSample" # <-- Name of your Xcode scheme
+        
     scripts:
       # ...
       - name: Install dependencies cocoapods
@@ -24,8 +25,18 @@ workflows:
           xcode-project build-ipa \
             --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME"
+
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+
+    publishing:
+      
+      app_store_connect:
+        auth: integration
+
+        submit_to_testflight: true
+  
+        submit_to_app_store: false
