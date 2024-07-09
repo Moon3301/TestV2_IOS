@@ -1,6 +1,13 @@
 workflows:
   ios-workflow:
-    name: iOS Workflow 
+    name: iOS Native
+    max_build_duration: 120
+    instance_type: mac_mini_m1
+    
+    integrations:
+      app_store_connect: codemagic
+      
+      
     environment:
       ios_signing:
         distribution_type: app_store # or: ad_hoc | development | enterprise
@@ -36,9 +43,4 @@ workflows:
         submit_to_testflight: true
         submit_to_app_store: false
         
-integrations:
-  app_store_connect:
-    api_key:
-      key_id: APP_STORE_CONNECT_KEY_IDENTIFIER
-      issuer_id: APP_STORE_CONNECT_ISSUER_ID
-      private_key: APP_STORE_CONNECT_PRIVATE_KEY
+
